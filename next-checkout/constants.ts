@@ -1,4 +1,5 @@
 export default {
-    endpoint: 'http://localhost:8000/api/checkout',
-    stripe_key: 'pk_test_51O14MdK9Gfq6HVtwFDc2L4PO16kULV5OVed7yO8e464Aj0GYplJdv1t0ouOgOaUnPcq724XC4iUilkyZhPbWsozT008NnZ8zBT'
-}
+  endpoint: "http://35.193.105.109/api/ambassador/checkout",
+  stripe_key:
+    "pk_test_51Q7nsJIJBwrs3eQMdyrPaC3ZqFkTQiG9GPzkbujJtYNjpim9VRfKGrLTM55hcEMZaBsUJur9IWjFKI5j3zP4sLu000vGaC7okU",
+};
