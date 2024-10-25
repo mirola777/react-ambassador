@@ -11,10 +11,18 @@ const Login = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await axios.post("auth/register", {
+    const response = await axios.post("auth/login", {
       email,
       password,
     });
+
+    const data = response.data;
+
+    axios.defaults.headers.Authorization = `Bearer ${data.token}`;
+
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
 
     setRedirect(true);
   };

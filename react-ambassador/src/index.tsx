@@ -9,6 +9,9 @@ import reportWebVitals from "./reportWebVitals";
 
 axios.defaults.baseURL = "http://35.193.105.109/api/ambassador/";
 axios.defaults.withCredentials = true;
+axios.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+  "token"
+)}`;
 
 const store = configureStore();
 

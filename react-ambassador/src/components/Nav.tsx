@@ -8,6 +8,10 @@ import { setUser } from "../redux/actions/setUserAction";
 const Nav = (props: any) => {
   const logout = async () => {
     await axios.post("auth/logout");
+    localStorage.removeItem("token");
+
+    axios.defaults.headers.Authorization = "";
+
     props.setUser(null);
   };
 
