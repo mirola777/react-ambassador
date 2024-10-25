@@ -22,7 +22,7 @@ const Profile = (props: any) => {
   const infoSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const { data } = await axios.put("users/info", {
+    const { data } = await axios.put("users/update", {
       first_name,
       last_name,
       email,

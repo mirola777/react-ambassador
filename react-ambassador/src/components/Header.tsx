@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -9,8 +10,17 @@ const Header = (props: { user: User }) => {
 
   useEffect(() => {
     if (props.user?.id) {
-      setTitle(`$${props.user.revenue}`);
-      setDescription("You have earned this far");
+      axios
+        .get("checkout/revenue")
+        .then((res) => res.data.revenue)
+        .then((revenue) => {
+          setTitle(`$${revenue}`);
+          setDescription("You have earned this far");
+        })
+        .catch((e) => {
+          setTitle(`$0`);
+          setDescription("You have earned this far");
+        });
     } else {
       setTitle("Welcome");
       setDescription("Share links to earn money");
