@@ -93,7 +93,7 @@ const Products = () => {
           <TablePagination
             count={products.length}
             page={page}
-            onPageChange={(e, newPage) => setPage(newPage)}
+            onChangePage={(e, newPage) => setPage(newPage)}
             rowsPerPage={perPage}
             rowsPerPageOptions={[]}
           />

@@ -61,9 +61,10 @@ const Users = () => {
         </TableBody>
         <TableFooter>
           <TablePagination
+            component="div"
             count={users.length}
             page={page}
-            onPageChange={(e, newPage) => setPage(newPage)}
+            onChangePage={(e, newPage) => setPage(newPage)}
             rowsPerPage={perPage}
             rowsPerPageOptions={[]}
           />

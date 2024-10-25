@@ -11,7 +11,7 @@ const Header = (props: { user: User }) => {
   useEffect(() => {
     if (props.user?.id) {
       axios
-        .get("checkout/revenue")
+        .post("checkout/revenue")
         .then((res) => res.data.revenue)
         .then((revenue) => {
           setTitle(`$${revenue}`);

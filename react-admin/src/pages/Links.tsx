@@ -54,9 +54,10 @@ const Links = (props: any) => {
         </TableBody>
         <TableFooter>
           <TablePagination
+            component="div"
             count={links.length}
             page={page}
-            onPageChange={(e, newPage) => setPage(newPage)}
+            onChangePage={(e, newPage) => setPage(newPage)}
             rowsPerPage={perPage}
             rowsPerPageOptions={[]}
           />

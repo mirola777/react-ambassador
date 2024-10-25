@@ -17,7 +17,11 @@ const Nav = (props: { user: User | null }) => {
         <Link
           to={"/login"}
           className="p-2 text-white text-decoration-none"
-          onClick={async () => await axios.post("auth/logout")}
+          onClick={async () => {
+            await axios.post("auth/logout");
+
+            localStorage.removeItem("token");
+          }}
         >
           Sign out
         </Link>
