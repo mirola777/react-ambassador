@@ -57,7 +57,7 @@ const Products = (props: {
       setNotify({
         show: true,
         error: false,
-        message: `Link generated: http://34.44.34.13:5000/${data.code}`,
+        message: `Link generated: http://34.44.34.13:3000/${data.code}`,
       });
     } catch (e) {
       setNotify({
