@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  next-frontend:
+    build:
+      context: . # Ubicación del Dockerfile
+    ports:
+      - "4000:4000" # Mapea el puerto local 4000 al puerto del contenedor
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
