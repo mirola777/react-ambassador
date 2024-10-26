@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Component, SyntheticEvent } from "react";
 import { Redirect } from "react-router-dom";
+import { signInWithGoogle } from "../firebase/signingogle";
 
 class Register extends Component {
   firstName = "";
@@ -10,6 +11,7 @@ class Register extends Component {
   passwordConfirm = "";
   state = {
     redirect: false,
+    redirectHome: false,
   };
 
   submit = async (e: SyntheticEvent) => {
@@ -28,9 +30,23 @@ class Register extends Component {
     });
   };
 
+  google = async () => {
+    const success = await signInWithGoogle();
+
+    if (success) {
+      this.setState({
+        redirectHome: true,
+      });
+    }
+  };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={"/login"} />;
+    }
+
+    if (this.state.redirectHome) {
+      return <Redirect to={"/"} />;
     }
 
     return (
@@ -89,7 +105,10 @@ class Register extends Component {
           <button className="w-100 btn btn-lg btn-primary" type="submit">
             Submit
           </button>
-        </form>
+        </form>{" "}
+        <button className="w-100 btn btn-lg btn-primary" onClick={this.google}>
+          Google
+        </button>
       </main>
     );
   }

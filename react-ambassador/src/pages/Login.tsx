@@ -2,6 +2,7 @@ import axios from "axios";
 import { SyntheticEvent, useState } from "react";
 import { Redirect } from "react-router-dom";
 import "../Login.css";
+import { signInWithGoogle } from "../firebase/signingogle";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,6 +26,14 @@ const Login = () => {
     }
 
     setRedirect(true);
+  };
+
+  const google = async () => {
+    const success = await signInWithGoogle();
+
+    if (success) {
+      setRedirect(true);
+    }
   };
 
   if (redirect) {
@@ -61,6 +70,9 @@ const Login = () => {
           Sign in
         </button>
       </form>
+      <button className="w-100 btn btn-lg btn-primary" onClick={google}>
+        Google
+      </button>
     </main>
   );
 };
